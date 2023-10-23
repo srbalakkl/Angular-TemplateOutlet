@@ -1,0 +1,38 @@
+<div style="border: 1px solid blue">
+  <ng-container [ngTemplateOutlet]="headerTemplate||defaultHeader">
+  </ng-container>
+
+  <ng-template #defaultHeader>
+    <div>Weather Forecast</div>
+    <div>Current Weather in Your Location</div>
+  </ng-template>
+</div>
+
+
+<div>
+<!--  <ng-container [ngTemplateOutletContext]="{$implicit:state}"
+                [ngTemplateOutlet]="contentTemplate || defaultWidgetContent">
+  </ng-container>-->
+
+
+  <ng-container [ngTemplateOutletContext]="{state:state}"
+                [ngTemplateOutlet]="contentTemplate || defaultWidgetContent">
+  </ng-container>
+  <ng-template #defaultWidgetContent>
+    <div style="border: 1px solid red">
+      <div>{{state.data.skyCondition == 'sunny' ? '☀️' : '☁️'}}</div>
+      <div>{{state.data.temperature}}C</div>
+    </div>
+  </ng-template>
+</div>
+
+
+<div style="border: 1px solid green">
+
+  <ng-container [ngTemplateOutlet]="actionTemplate || defaultWidgetContent" [ngTemplateOutletInjector]="injector">
+  </ng-container>
+  <ng-template #defaultWidgetAction>
+    <button (click)="actions.reload()" type="button">Reload</button>
+    <button (click)="actions.copyData()" type="button">Copy Info</button>
+  </ng-template>
+</div>
