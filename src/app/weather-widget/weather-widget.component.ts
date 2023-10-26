@@ -20,4 +20,5 @@ export class WeatherWidgetComponent implements AfterViewInit{
 
   ngAfterViewInit() {
   }
+  
 }
