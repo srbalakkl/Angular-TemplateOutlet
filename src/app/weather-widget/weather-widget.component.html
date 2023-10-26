@@ -29,7 +29,7 @@
 
 <div style="border: 1px solid green">
 
-  <ng-container [ngTemplateOutlet]="actionTemplate || defaultWidgetContent" [ngTemplateOutletInjector]="injector">
+  <ng-container [ngTemplateOutlet]="actionTemplate || defaultWidgetAction" [ngTemplateOutletInjector]="injector">
   </ng-container>
   <ng-template #defaultWidgetAction>
     <button (click)="actions.reload()" type="button">Reload</button>
